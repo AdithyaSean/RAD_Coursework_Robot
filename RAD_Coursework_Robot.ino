@@ -1,15 +1,15 @@
-#define HAS_SONAR 0
+#define HAS_SONAR 1
 //PWM properties
 const int FREQ = 5000;
 const int RES = 8;
 const int CH_PWM_L = 0;
 const int CH_PWM_R = 1;
-const int PIN_PWM_LE = 12;
+const int PIN_PWM_LE = 33;
 const int PIN_PWM_LF = 14;
 const int PIN_PWM_LB = 27;
-const int PIN_PWM_RF = 25;
-const int PIN_PWM_RB = 26;
-const int PIN_PWM_RE = 33;
+const int PIN_PWM_RF = 26;
+const int PIN_PWM_RB = 25;
+const int PIN_PWM_RE = 12;
 const int PIN_TRIGGER = 32;
 const int PIN_ECHO = 35;
 
@@ -228,14 +228,14 @@ void update_vehicle() {
 }
 
 void update_left_motors() {
-  if (ctrl_left < 0) {
-    ledcWrite(CH_PWM_L, -ctrl_left);
-    digitalWrite(PIN_PWM_LF, LOW);
-    digitalWrite(PIN_PWM_LB, HIGH);
-  } else if (ctrl_left > 0) {
+  if (ctrl_left > 0) {
     ledcWrite(CH_PWM_L, ctrl_left);
     digitalWrite(PIN_PWM_LF, HIGH);
     digitalWrite(PIN_PWM_LB, LOW);
+  } else if (ctrl_left < 0) {
+    ledcWrite(CH_PWM_L, -ctrl_left);
+    digitalWrite(PIN_PWM_LF, LOW);
+    digitalWrite(PIN_PWM_LB, HIGH);
   } else {
     ledcWrite(CH_PWM_L, ctrl_left);
     digitalWrite(PIN_PWM_LF, LOW);
@@ -244,14 +244,14 @@ void update_left_motors() {
 }
 
 void update_right_motors() {
-  if (ctrl_right < 0) {
-    ledcWrite(CH_PWM_R, -ctrl_right);
-    digitalWrite(PIN_PWM_RF, LOW);
-    digitalWrite(PIN_PWM_RB, HIGH);
-  } else if (ctrl_right > 0) {
+  if (ctrl_right > 0) {
     ledcWrite(CH_PWM_R, ctrl_right);
     digitalWrite(PIN_PWM_RF, HIGH);
     digitalWrite(PIN_PWM_RB, LOW);
+  } else if (ctrl_right < 0) {
+    ledcWrite(CH_PWM_R, -ctrl_right);
+    digitalWrite(PIN_PWM_RF, LOW);
+    digitalWrite(PIN_PWM_RB, HIGH);
   } else {
     ledcWrite(CH_PWM_R, ctrl_right);
     digitalWrite(PIN_PWM_RF, LOW);
