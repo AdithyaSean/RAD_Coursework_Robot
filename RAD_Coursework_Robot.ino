@@ -90,7 +90,7 @@ class MyCallbacks : public BLECharacteristicCallbacks {
 const float US_TO_CM = 0.01715;               //cm/uS -> (343 * 100 / 1000000) / 2;
 const unsigned int MAX_SONAR_DISTANCE = 300;  //cm
 const unsigned long MAX_SONAR_TIME = (long)MAX_SONAR_DISTANCE * 2 * 10 / 343 + 1;
-const unsigned int STOP_DISTANCE = 100;  //cm
+const unsigned int STOP_DISTANCE = 30;  //cm
 unsigned long sonar_interval = 1000;
 unsigned long sonar_time = 0;
 boolean sonar_sent = false;
