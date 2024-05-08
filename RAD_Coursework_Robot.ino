@@ -4,12 +4,12 @@ const int FREQ = 5000;
 const int RES = 8;
 const int CH_PWM_L = 0;
 const int CH_PWM_R = 1;
-const int PIN_PWM_LE = 33;
+const int PIN_PWM_LE = 33; //left side motors speed
 const int PIN_PWM_LF = 14;
 const int PIN_PWM_LB = 27;
 const int PIN_PWM_RF = 26;
 const int PIN_PWM_RB = 25;
-const int PIN_PWM_RE = 12;
+const int PIN_PWM_RE = 12; //right side motors speed
 const int PIN_TRIGGER = 32;
 const int PIN_ECHO = 35;
 
@@ -33,7 +33,7 @@ enum msgParts {
   BODY
 };
 
-msgParts msgPart = HEADER;
+msgParts msgPart = HEADER;  // declaration of the enum msg
 char header;
 char endChar = '\n';
 const char MAX_MSG_SZ = 60;
